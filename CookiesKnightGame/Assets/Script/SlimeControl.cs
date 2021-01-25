@@ -8,6 +8,7 @@ public class SlimeControl : MonoBehaviour
     public AIPath aiPath;
     public GameObject parent;
     private Animator anim;
+    bool touch = false;
 
     private void Awake()
     {
@@ -27,22 +28,29 @@ public class SlimeControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("HouseCookie"))
+        if (!touch)
         {
-            anim.SetTrigger("Eat");
-            Invoke("Die",1.5f);
-        }
+            if (collision.CompareTag("HouseCookie"))
+            {
+                touch = true;
+                anim.SetTrigger("Eat");
+                {
+                    Invoke("Die", 1.5f);
+                }
+            }
 
-        if (collision.CompareTag("AttackPoint"))
-        {
-            anim.SetTrigger("Die");
-            Invoke("Die",0.7f);
+            if (collision.CompareTag("AttackPoint"))
+            {
+                touch = true;
+                anim.SetTrigger("Die");
+                Invoke("Die", 0.7f);
+            }
         }
     }
 
     void Die()
     {
-        Destroy(parent);
         EnemyManager.enemyManager.numberOfSlime--;
+        Destroy(parent);
     }
 }

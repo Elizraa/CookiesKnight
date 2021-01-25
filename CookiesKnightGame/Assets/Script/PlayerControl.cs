@@ -8,6 +8,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rb;
     public Transform playerGraf;
     public Animator anim;
+    public GameObject minimap;
 
     Vector2 movement;
 
@@ -22,6 +23,8 @@ public class PlayerControl : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         if (Input.GetButtonDown("Fire1")) Attack();
+        if (Input.GetButtonDown("Fire2")) showMinimap();
+        else if (Input.GetButtonUp("Fire2")) closeMinimap();
     }
 
     private void FixedUpdate()
@@ -44,5 +47,15 @@ public class PlayerControl : MonoBehaviour
     void Attack()
     {
         anim.SetTrigger("Attack");
+    }
+
+    void showMinimap()
+    {
+        minimap.SetActive(true);
+    }
+
+    void closeMinimap()
+    {
+        minimap.SetActive(false);
     }
 }

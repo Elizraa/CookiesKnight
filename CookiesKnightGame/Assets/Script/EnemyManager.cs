@@ -11,6 +11,8 @@ public class EnemyManager : MonoBehaviour
     public float minSpawnTime, maxSpawnTime;
     public GameObject slime;
 
+    private int randomResult = -1;
+
     private void Awake()
     {
         if (enemyManager == null)
@@ -20,7 +22,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(numberOfSlime < 2)
+        if(numberOfSlime < maxSlime)
         {
             StartCoroutine(spawnSlime());
         }
@@ -30,6 +32,12 @@ public class EnemyManager : MonoBehaviour
     {
         numberOfSlime++;
         yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
-        Instantiate(slime, spawnPoints[Random.Range(0, 6)].position, Quaternion.identity);
+        int currentRandom;
+        do
+        {
+            currentRandom = Random.Range(0, 6);
+        } while (currentRandom == randomResult);
+        randomResult = currentRandom;
+        Instantiate(slime, spawnPoints[randomResult].position, Quaternion.identity);
     }
 }

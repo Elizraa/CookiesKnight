@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,5 +25,26 @@ public class CookieControl : MonoBehaviour
         tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
 
         transform.position = tempPos;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (this.gameObject.name == "LightPotion(Clone)")
+            {
+                Animator animPlayer = GameObject.Find("FlashLightPlayer").GetComponent<Animator>();
+                animPlayer.Play("GetBiggerFlashLight");
+                animPlayer = GameObject.Find("FogMinimap").GetComponent<Animator>();
+                animPlayer.Play("GetTransparant");
+                CookieManager.cookieManager.potionIsIn = false;
+                Destroy(this.gameObject);
+            }
+            
+            if(Array.Exists(LevelManager.levelManager.cookieNeededNow, element => element == int.Parse(this.gameObject.name)))
+            {
+                LevelManager.levelManager.cookiesGet(this.gameObject.name);
+            }
+        }
     }
 }
