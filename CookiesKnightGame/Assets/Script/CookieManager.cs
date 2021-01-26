@@ -10,7 +10,9 @@ public class CookieManager : MonoBehaviour
     public GameObject[] cookies;
     public GameObject potion;
     private int i = 10;
-    private float waitForSpawnPotion = 2f;
+    [HideInInspector]
+    public float waitForSpawnPotion = 2f;
+    [HideInInspector]
     public bool potionIsIn = true;
 
     private void Awake()
@@ -72,7 +74,6 @@ public class CookieManager : MonoBehaviour
         else
         {
             Instantiate(potion, position, Quaternion.identity);
-            waitForSpawnPotion = 7f;
         }
     }
 }

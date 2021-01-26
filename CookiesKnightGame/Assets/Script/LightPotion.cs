@@ -34,6 +34,7 @@ public class LightPotion : MonoBehaviour
             animPlayer = GameObject.Find("FogMinimap").GetComponent<Animator>();
             animPlayer.Play("GetTransparant");
             CookieManager.cookieManager.potionIsIn = false;
+            CookieManager.cookieManager.waitForSpawnPotion = 7f;
             Destroy(this.gameObject);
         }
     }

@@ -8,7 +8,7 @@ public class SlimeControl : MonoBehaviour
     public AIPath aiPath;
     public GameObject parent;
     private Animator anim;
-    bool touch = false;
+    bool touch, eat;
 
     private void Awake()
     {
@@ -35,6 +35,7 @@ public class SlimeControl : MonoBehaviour
                 touch = true;
                 anim.SetTrigger("Eat");
                 {
+                    eat = true;
                     Invoke("Die", 1.5f);
                 }
             }
@@ -50,7 +51,15 @@ public class SlimeControl : MonoBehaviour
 
     void Die()
     {
-        EnemyManager.enemyManager.numberOfSlime--;
+        if (eat)
+        {
+            HouseHealth.houseHealth.healthReduce();
+        }
+        else
+        {
+            HouseHealth.houseHealth.updateScore(5);
+        }
+            EnemyManager.enemyManager.numberOfSlime--;
         Destroy(parent);
     }
 }
