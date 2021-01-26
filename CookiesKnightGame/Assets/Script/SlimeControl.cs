@@ -10,7 +10,7 @@ public class SlimeControl : MonoBehaviour
     private Animator anim;
     private AudioSource audioSource;
     public AudioClip eatSound, hitSound;
-    bool touch, eat;
+    bool touch;
 
     private void Awake()
     {
@@ -40,6 +40,7 @@ public class SlimeControl : MonoBehaviour
                 {
                     eat = true;
                     audioSource.PlayOneShot(eatSound);
+                    HouseHealth.houseHealth.healthReduce();
                     Invoke("Die", 1.5f);
                 }
             }
@@ -49,6 +50,7 @@ public class SlimeControl : MonoBehaviour
                 touch = true;
                 anim.SetTrigger("Die");
                 audioSource.PlayOneShot(hitSound);
+                HouseHealth.houseHealth.updateScore(5);
                 Invoke("Die", 0.7f);
             }
         }
@@ -56,14 +58,6 @@ public class SlimeControl : MonoBehaviour
 
     void Die()
     {
-        if (eat)
-        {
-            HouseHealth.houseHealth.healthReduce();
-        }
-        else
-        {
-            HouseHealth.houseHealth.updateScore(5);
-        }
             EnemyManager.enemyManager.numberOfSlime--;
         Destroy(parent);
     }

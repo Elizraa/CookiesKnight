@@ -120,7 +120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiPath: {fileID: 803263225}
   parent: {fileID: 7495637542286310941}
-  audioSource: {fileID: 5614070606561379744}
   eatSound: {fileID: 8300000, guid: ee8ed0f8701c5534299c246c574eaf52, type: 3}
   hitSound: {fileID: 8300000, guid: cf45bb834e61e21459459884794a034c, type: 3}
 --- !u!50 &1857597394
@@ -172,7 +171,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
