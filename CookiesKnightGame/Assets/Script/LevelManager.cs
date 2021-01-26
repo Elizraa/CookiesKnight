@@ -33,6 +33,8 @@ public class LevelManager : MonoBehaviour
     public AudioSource playerAudio;
     public AudioClip doneStageSound,pickUpCookie;
 
+    public ParticleSystem playerParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,6 +107,7 @@ public class LevelManager : MonoBehaviour
             {
                 cookieNeededUI[i].color = Color.green;
                 playerAudio.PlayOneShot(pickUpCookie);
+                playerParticle.Play();
                 cookieNeededUI.RemoveAt(i);
             }
         }

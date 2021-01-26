@@ -73,7 +73,9 @@ public class CookieManager : MonoBehaviour
         }
         else
         {
-            Instantiate(potion, position, Quaternion.identity);
+            GameObject go = Instantiate(potion, position, Quaternion.identity);
+            go.transform.position = new Vector3(go.transform.position.x, go.transform.position.y, -0.1f);
+
         }
     }
 }
