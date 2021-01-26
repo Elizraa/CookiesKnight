@@ -8,11 +8,14 @@ public class SlimeControl : MonoBehaviour
     public AIPath aiPath;
     public GameObject parent;
     private Animator anim;
+    private AudioSource audioSource;
+    public AudioClip eatSound, hitSound;
     bool touch, eat;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()
@@ -36,6 +39,7 @@ public class SlimeControl : MonoBehaviour
                 anim.SetTrigger("Eat");
                 {
                     eat = true;
+                    audioSource.PlayOneShot(eatSound);
                     Invoke("Die", 1.5f);
                 }
             }
@@ -44,6 +48,7 @@ public class SlimeControl : MonoBehaviour
             {
                 touch = true;
                 anim.SetTrigger("Die");
+                audioSource.PlayOneShot(hitSound);
                 Invoke("Die", 0.7f);
             }
         }

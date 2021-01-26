@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     private int stage = 0, nextStage = 4;
     private float timeLog = 0f;
 
-    public Text stopwatch;
+    public AudioSource mainMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +70,7 @@ public class LevelManager : MonoBehaviour
     public void startGame()
     {
         Time.timeScale = 1f;
+        mainMusic.enabled = false;
         Destroy(startButton);
     }
 

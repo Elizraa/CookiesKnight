@@ -10,10 +10,13 @@ public class PlayerControl : MonoBehaviour
     public Animator anim;
     public GameObject minimap;
 
+    private AudioSource audioSource;
+    public AudioClip attack;
     Vector2 movement;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -46,6 +49,7 @@ public class PlayerControl : MonoBehaviour
 
     void Attack()
     {
+        audioSource.PlayOneShot(attack);
         anim.SetTrigger("Attack");
     }
 

@@ -6,7 +6,7 @@ public class LightPotion : MonoBehaviour
 {
     private float amplitude = 0.2f;
     public float frequency = 1f;
-
+    public AudioClip pickUp;
     // Position Storage Variables
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
@@ -35,6 +35,7 @@ public class LightPotion : MonoBehaviour
             animPlayer.Play("GetTransparant");
             CookieManager.cookieManager.potionIsIn = false;
             CookieManager.cookieManager.waitForSpawnPotion = 7f;
+            collision.gameObject.GetComponent<AudioSource>().PlayOneShot(pickUp);
             Destroy(this.gameObject);
         }
     }

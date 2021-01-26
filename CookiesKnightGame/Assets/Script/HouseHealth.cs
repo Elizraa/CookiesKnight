@@ -39,7 +39,7 @@ public class HouseHealth : MonoBehaviour
 
     public void gameOver()
     {
-
+        LevelManager.levelManager.mainMusic.enabled = true;
     }
 
     public void updateScore(int scoreUpdate)
