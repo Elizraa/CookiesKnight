@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     public int stage = 0, nextStage = 4;
     private float timeLog = 0f;
 
+    [HideInInspector]
     public AudioSource mainMusic;
     public AudioSource playerAudio;
     public AudioClip doneStageSound,pickUpCookie;
@@ -40,6 +41,7 @@ public class LevelManager : MonoBehaviour
     {
         if (levelManager == null)
             levelManager = this;
+        mainMusic = GameObject.Find("Music").GetComponent<AudioSource>();
         Time.timeScale = 0f;
         timer = 0f;
         setMaxTime(timeOfTheStage);
