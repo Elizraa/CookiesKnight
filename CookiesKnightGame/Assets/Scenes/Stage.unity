@@ -8103,7 +8103,7 @@ MonoBehaviour:
   - {fileID: 2087371914}
   Score: 0
   scoreText: {fileID: 876036809}
-  gameOverSound: {fileID: 8300000, guid: a59dfe4bee92e8f4abb923eaef9e6cbc, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 518639d004dbdf349bc1187a790b87d0, type: 3}
   gameOverPanel: {fileID: 1159334305}
   finalScore: {fileID: 1646600159}
   finalPackage: {fileID: 1738529942}
