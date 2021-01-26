@@ -114,6 +114,7 @@ public class LevelManager : MonoBehaviour
         if(cookieNeededUI.Count == 1)
         {
             stage++;
+            EnemyManager.enemyManager.spawnDoor();
             nextCookiesGenerate = true;
             playerAudio.PlayOneShot(doneStageSound);
             HouseHealth.houseHealth.updateScore(150);
