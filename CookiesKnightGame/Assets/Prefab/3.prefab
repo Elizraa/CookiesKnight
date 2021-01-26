@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2753235221790629846}
   - component: {fileID: 2753235221790629849}
   m_Layer: 9
-  m_Name: GreenManCookie
+  m_Name: 3
   m_TagString: Cookie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

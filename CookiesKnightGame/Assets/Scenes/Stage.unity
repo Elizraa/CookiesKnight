@@ -656,6 +656,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   timerImage: {fileID: 838261534}
+  stopwatch: {fileID: 0}
 --- !u!1 &276383792
 GameObject:
   m_ObjectHideFlags: 0

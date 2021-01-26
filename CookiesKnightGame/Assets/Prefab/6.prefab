@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5051234691162001617}
   - component: {fileID: 5051234691162001622}
   m_Layer: 9
-  m_Name: LegsCookie
+  m_Name: 6
   m_TagString: Cookie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

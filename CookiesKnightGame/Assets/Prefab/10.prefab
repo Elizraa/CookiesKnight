@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5363236301862243732}
   - component: {fileID: 5363236301862243733}
   m_Layer: 9
-  m_Name: TreeCookie
+  m_Name: 10
   m_TagString: Cookie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
