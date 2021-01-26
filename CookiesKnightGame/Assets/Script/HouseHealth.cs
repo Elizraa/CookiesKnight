@@ -14,6 +14,10 @@ public class HouseHealth : MonoBehaviour
     [HideInInspector]
     public int Score = 0;
     public Text scoreText;
+
+    public AudioClip gameOverSound;
+
+    public GameObject gameOverPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,7 @@ public class HouseHealth : MonoBehaviour
     public void gameOver()
     {
         LevelManager.levelManager.mainMusic.enabled = true;
+        LevelManager.levelManager.playerAudio.PlayOneShot(gameOverSound);
     }
 
     public void updateScore(int scoreUpdate)

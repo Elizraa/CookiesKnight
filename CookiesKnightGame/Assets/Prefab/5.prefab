@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 1.3
+  pickUp: {fileID: 8300000, guid: eb9b86d0917e8e844a22d0a77814b3f3, type: 3}

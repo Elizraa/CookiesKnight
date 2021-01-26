@@ -8,6 +8,8 @@ public class CookieControl : MonoBehaviour
     private float amplitude = 0.2f;
     public float frequency = 1f;
 
+    public AudioClip pickUp;
+
     // Position Storage Variables
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
@@ -30,19 +32,10 @@ public class CookieControl : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
-            if (this.gameObject.name == "LightPotion(Clone)")
-            {
-                Animator animPlayer = GameObject.Find("FlashLightPlayer").GetComponent<Animator>();
-                animPlayer.Play("GetBiggerFlashLight");
-                animPlayer = GameObject.Find("FogMinimap").GetComponent<Animator>();
-                animPlayer.Play("GetTransparant");
-                CookieManager.cookieManager.potionIsIn = false;
-                Destroy(this.gameObject);
-            }
-            
+        {   
             if(Array.Exists(LevelManager.levelManager.cookieNeededNow, element => element == int.Parse(this.gameObject.name)))
             {
+                collision.gameObject.GetComponent<AudioSource>().PlayOneShot(pickUp);
                 LevelManager.levelManager.cookiesGet(this.gameObject.name);
             }
         }

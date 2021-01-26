@@ -657,6 +657,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   timerImage: {fileID: 838261534}
   mainMusic: {fileID: 1863527632}
+  playerAudio: {fileID: 2107856241}
+  doneStageSound: {fileID: 8300000, guid: 2ea1eed8e4c3adb4eab2ebf86ea5975f, type: 3}
 --- !u!1 &276383792
 GameObject:
   m_ObjectHideFlags: 0
@@ -7805,6 +7807,7 @@ MonoBehaviour:
   - {fileID: 2087371914}
   Score: 0
   scoreText: {fileID: 876036809}
+  gameOverSound: {fileID: 8300000, guid: a59dfe4bee92e8f4abb923eaef9e6cbc, type: 3}
 --- !u!1 &815714254
 GameObject:
   m_ObjectHideFlags: 0

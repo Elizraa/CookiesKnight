@@ -29,6 +29,8 @@ public class LevelManager : MonoBehaviour
     private float timeLog = 0f;
 
     public AudioSource mainMusic;
+    public AudioSource playerAudio;
+    public AudioClip doneStageSound;
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +110,7 @@ public class LevelManager : MonoBehaviour
         if(cookieNeededUI.Count == 1)
         {
             nextCookiesGenerate = true;
+            playerAudio.PlayOneShot(doneStageSound);
             HouseHealth.houseHealth.updateScore(150);
         }
     }

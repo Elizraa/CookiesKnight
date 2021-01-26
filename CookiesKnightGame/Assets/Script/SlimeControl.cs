@@ -38,7 +38,6 @@ public class SlimeControl : MonoBehaviour
                 touch = true;
                 anim.SetTrigger("Eat");
                 {
-                    eat = true;
                     audioSource.PlayOneShot(eatSound);
                     HouseHealth.houseHealth.healthReduce();
                     Invoke("Die", 1.5f);
