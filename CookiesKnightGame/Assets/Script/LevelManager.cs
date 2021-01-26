@@ -23,14 +23,15 @@ public class LevelManager : MonoBehaviour
     public Gradient gradientTimer;
     public Image timerImage;
 
-    private float timeOfTheStage = 240f;
+    private float timeOfTheStage = 210f;
 
-    private int stage = 0, nextStage = 4;
+    [HideInInspector]
+    public int stage = 0, nextStage = 4;
     private float timeLog = 0f;
 
     public AudioSource mainMusic;
     public AudioSource playerAudio;
-    public AudioClip doneStageSound;
+    public AudioClip doneStageSound,pickUpCookie;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,6 @@ public class LevelManager : MonoBehaviour
         if (nextCookiesGenerate)
         {
             nextCookiesGenerate = false;
-            stage++;
             if (stage > nextStage)
             {
                 updateMaxSlime = true;
@@ -104,11 +104,13 @@ public class LevelManager : MonoBehaviour
             if(cookieNeededUI[i].sprite.name == cookieType)
             {
                 cookieNeededUI[i].color = Color.green;
+                playerAudio.PlayOneShot(pickUpCookie);
                 cookieNeededUI.RemoveAt(i);
             }
         }
         if(cookieNeededUI.Count == 1)
         {
+            stage++;
             nextCookiesGenerate = true;
             playerAudio.PlayOneShot(doneStageSound);
             HouseHealth.houseHealth.updateScore(150);

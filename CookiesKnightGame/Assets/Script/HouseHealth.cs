@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HouseHealth : MonoBehaviour
@@ -18,6 +19,7 @@ public class HouseHealth : MonoBehaviour
     public AudioClip gameOverSound;
 
     public GameObject gameOverPanel;
+    public Text finalScore, finalPackage;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,10 @@ public class HouseHealth : MonoBehaviour
 
     public void gameOver()
     {
+        Time.timeScale = 0f;
+        finalScore.text = Score.ToString();
+        finalPackage.text = (LevelManager.levelManager.stage - 1).ToString();
+        gameOverPanel.SetActive(true);
         LevelManager.levelManager.mainMusic.enabled = true;
         LevelManager.levelManager.playerAudio.PlayOneShot(gameOverSound);
     }
@@ -51,5 +57,15 @@ public class HouseHealth : MonoBehaviour
     {
         Score += scoreUpdate;
         scoreText.text = Score.ToString();
+    }
+
+    public void Menu()
+    {
+
+    }
+
+    public void Retry()
+    {
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
 }

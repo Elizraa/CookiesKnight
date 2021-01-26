@@ -8,8 +8,6 @@ public class CookieControl : MonoBehaviour
     private float amplitude = 0.2f;
     public float frequency = 1f;
 
-    public AudioClip pickUp;
-
     // Position Storage Variables
     Vector3 posOffset = new Vector3();
     Vector3 tempPos = new Vector3();
@@ -35,7 +33,6 @@ public class CookieControl : MonoBehaviour
         {   
             if(Array.Exists(LevelManager.levelManager.cookieNeededNow, element => element == int.Parse(this.gameObject.name)))
             {
-                collision.gameObject.GetComponent<AudioSource>().PlayOneShot(pickUp);
                 LevelManager.levelManager.cookiesGet(this.gameObject.name);
             }
         }
