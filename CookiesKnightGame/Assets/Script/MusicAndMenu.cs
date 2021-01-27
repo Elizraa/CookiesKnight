@@ -21,29 +21,27 @@ public class MusicAndMenu : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void LoadScene()
-    {
-        if (SceneManager.GetActiveScene().name == "StartMenu")
-        {
-            PlayFader();
-            SceneManager.LoadScene(1);
-        }
-    }
     public void Menu()
     {
         PlayFader();
-        SceneManager.LoadScene(0);
+        StartCoroutine(changeSceneTO(0));
     }
 
     public void Retry()
     {
         PlayFader();
-        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        StartCoroutine(changeSceneTO(1));
     }
 
     void PlayFader()
     {
         Time.timeScale = 1f;
         anim.Play("FadeInFader");
+    }
+
+    IEnumerator changeSceneTO(int sceneIndex)
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(sceneIndex);
     }
 }

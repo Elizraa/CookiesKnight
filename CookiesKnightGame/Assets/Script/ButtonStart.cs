@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScreenFader : MonoBehaviour
+public class ButtonStart : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,10 @@ public class ScreenFader : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void enterStage()
+    {
+        MusicAndMenu.musicAndMenu.Retry();
     }
 }
