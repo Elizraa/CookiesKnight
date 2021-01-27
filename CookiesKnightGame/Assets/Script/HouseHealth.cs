@@ -59,13 +59,13 @@ public class HouseHealth : MonoBehaviour
         scoreText.text = Score.ToString();
     }
 
-    public void Menu()
+    public void retryGame()
     {
-
+        MusicAndMenu.musicAndMenu.Retry();
     }
 
-    public void Retry()
+    public void goToMenu()
     {
-        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+        MusicAndMenu.musicAndMenu.Menu();
     }
 }

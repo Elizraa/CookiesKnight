@@ -559,6 +559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa202d24731d9d9449d577ca69c761c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenFader: {fileID: 78126009}
+  anim: {fileID: 1574390280}
 --- !u!1 &1144347839
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +731,7 @@ GameObject:
   - component: {fileID: 1574390279}
   - component: {fileID: 1574390278}
   - component: {fileID: 1574390280}
+  - component: {fileID: 1574390281}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -805,13 +808,25 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 605da0f46d0fc214e8c744abc7992567, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &1574390281
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574390276}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1740051311
 GameObject:
   m_ObjectHideFlags: 0

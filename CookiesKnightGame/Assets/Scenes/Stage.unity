@@ -1129,7 +1129,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 52eda426a362c4c4dbfe59dd60a0e406, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9490196}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1683,7 +1683,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 775787517}
         m_TargetAssemblyTypeName: HouseHealth, Assembly-CSharp
-        m_MethodName: Retry
+        m_MethodName: retryGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8061,7 +8061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775787513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0.35, z: 0}
+  m_LocalPosition: {x: -0.02, y: 0.35, z: -0.1}
   m_LocalScale: {x: 1.6422132, y: 1.6422132, z: 1.6422132}
   m_Children:
   - {fileID: 2108151246}
@@ -8369,10 +8369,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 899445974, guid: 3e10c6c63c06bb54cbfff95cee8978cb, type: 3}
-      propertyPath: pickUp
-      value: 
-      objectReference: {fileID: 8300000, guid: ac385a03972e64648abcdbf6de900c30, type: 3}
     - target: {fileID: 3822163383807147930, guid: 3e10c6c63c06bb54cbfff95cee8978cb, type: 3}
       propertyPath: m_Name
       value: LightPotion
@@ -8674,13 +8670,17 @@ MonoBehaviour:
   - {fileID: 277932462}
   - {fileID: 162349778}
   - {fileID: 1438837238}
-  spawnPointsDoor: []
+  spawnPointsDoor:
+  - {fileID: 1205544378}
+  - {fileID: 145634726}
+  - {fileID: 1311873769}
+  - {fileID: 1181358747}
   maxSlime: 2
   numberOfSlime: 0
   minSpawnTime: 3
   maxSpawnTime: 7
   slime: {fileID: 7495637542286310941, guid: f9b551b994e7e0e4aa8d07d57d7e4b47, type: 3}
-  door: {fileID: 0}
+  door: {fileID: 6888965963649614664, guid: d49e3344c8c59214ba34f6133d29b4ea, type: 3}
 --- !u!4 &1068208298
 Transform:
   m_ObjectHideFlags: 0
@@ -27530,9 +27530,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 52eda426a362c4c4dbfe59dd60a0e406, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -27712,7 +27712,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -28989,7 +28989,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: f90fd37cd5e32c449add59e0aae0a9e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -34087,7 +34087,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 775787517}
         m_TargetAssemblyTypeName: HouseHealth, Assembly-CSharp
-        m_MethodName: Menu
+        m_MethodName: goToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

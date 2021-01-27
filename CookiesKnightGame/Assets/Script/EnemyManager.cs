@@ -43,6 +43,8 @@ public class EnemyManager : MonoBehaviour
 
     public void spawnDoor()
     {
-        Instantiate(door, spawnPointsDoor[Random.Range(0, 4)].position, Quaternion.identity);
+        int randomResult = Random.Range(0, 4);
+        Instantiate(door, spawnPointsDoor[randomResult].position, spawnPointsDoor[randomResult].rotation);
+        
     }
 }

@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     public bool updateMaxSlime;
     public GameObject startButton;
     public Sprite[] cookieSprite;
-    public List<Image> cookieNeededUI = new List<Image>();
+    private List<Image> cookieNeededUI = new List<Image>();
     [HideInInspector]
     public int[] cookieNeededNow;
     [HideInInspector]
@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour
     public Gradient gradientTimer;
     public Image timerImage;
 
-    private float timeOfTheStage = 210f;
+    private float timeOfTheStage = 200f;
 
     [HideInInspector]
     public int stage = 0, nextStage = 4;
@@ -64,7 +64,7 @@ public class LevelManager : MonoBehaviour
                 updateMaxSlime = true;
                 nextStage += stage;
             }
-            if (timeOfTheStage > 130f)
+            if (timeOfTheStage > 120f)
                 timeOfTheStage -= 10f;
             timeLog = timer;
             setMaxTime(timeOfTheStage);
@@ -93,10 +93,10 @@ public class LevelManager : MonoBehaviour
             cookiesNeededTemp[i] = randomResult;
             cookieNeededUI.Add(GameObject.Find("CookieImage" + i.ToString()).GetComponent<Image>());
             cookieNeededUI[i].sprite = cookieSprite[randomResult];
-        }
-        for(int i = 0; i < cookieNeededUI.Count; i++)
-        {
             cookieNeededUI[i].color = Color.white;
+        }
+        for(int i = 0; i < 3; i++)
+        {
         }
         cookieNeededNow = cookiesNeededTemp;
     }
@@ -113,7 +113,7 @@ public class LevelManager : MonoBehaviour
                 cookieNeededUI.RemoveAt(i);
             }
         }
-        if(cookieNeededUI.Count == 1)
+        if(cookieNeededUI.Count == 0)
         {
             stage++;
             EnemyManager.enemyManager.spawnDoor();

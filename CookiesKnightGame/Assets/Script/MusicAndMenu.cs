@@ -5,22 +5,45 @@ using UnityEngine.SceneManagement;
 
 public class MusicAndMenu : MonoBehaviour
 {
-    private static bool created = false;
+    public static MusicAndMenu musicAndMenu;
+    public GameObject screenFader;
+    public Animator anim;
 
     void Awake()
     {
-        if (!created)
+        if (musicAndMenu == null)
         {
             DontDestroyOnLoad(this.gameObject);
-            created = true;
+            DontDestroyOnLoad(screenFader);
+            musicAndMenu = this;
         }
+        else if (musicAndMenu != this)
+            Destroy(gameObject);
     }
 
     public void LoadScene()
     {
         if (SceneManager.GetActiveScene().name == "StartMenu")
         {
+            PlayFader();
             SceneManager.LoadScene(1);
         }
+    }
+    public void Menu()
+    {
+        PlayFader();
+        SceneManager.LoadScene(0);
+    }
+
+    public void Retry()
+    {
+        PlayFader();
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+    }
+
+    void PlayFader()
+    {
+        Time.timeScale = 1f;
+        anim.Play("FadeInFader");
     }
 }
