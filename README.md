@@ -1,3 +1,3 @@
 # CookiesKnight
- 
-elizra.itch.io/warrior-of-cookies
+
+https://elizra.itch.io/warrior-of-cookies
